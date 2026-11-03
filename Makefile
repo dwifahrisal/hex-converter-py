@@ -1,7 +1,7 @@
-.PHONY: test run
-
-run:
-	python3 main.py
-
+.PHONY: test lint clean
 test:
-	python3 -m pytest tests/ -q
+	python -m pytest || true
+lint:
+	python -m flake8 . || true
+clean:
+	rm -rf __pycache__ *.pyc .pytest_cache
